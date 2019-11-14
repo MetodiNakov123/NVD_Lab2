@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca 3.2</title>
+
+    <script>
+        function zameni() {
+            let span = document.getElementById("spanID");
+
+            let anchor = document.createElement("a");
+            anchor.setAttribute("href", span.innerHTML);
+            anchor.innerHTML = span.innerHTML;
+
+            document.getElementById("container").replaceChild(anchor,span);
+
+        }
+    </script>
+
+</head>
+<body>
+    <div id="container">
+        <h1><b>Напреден веб дизајн</b></h1>
+        <span id="spanID">https://www.google.com/</span>
+        <br/><br/>
+        <button onclick="zameni()">Replace with anchor</button>
+    </div>
+</body>
+</html>

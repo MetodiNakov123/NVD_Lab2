@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca 2.2</title>
+
+    <script>
+        function callFucntion() {
+            let pred = new Date().getTime();
+            return () => {
+                let curr = new Date().getTime();
+                let diff = curr - pred;
+                pred = curr;
+                return diff;
+
+                }
+
+        }
+
+        let last_call_func = callFucntion();
+
+        function klikni (){
+            document.getElementById("vreme").innerHTML = last_call_func();
+        }
+
+    </script>
+
+</head>
+<body>
+    <button onclick="klikni()">last_call_func()</button> <br/>
+    Vreme vo ms: <span id="vreme"></span>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca 3.1</title>
+
+    <script>
+        function dodadi() {
+            let container = document.getElementById("container");
+            let div = document.createElement("div");
+            let input = document.createElement("input");
+            input.setAttribute("type", "file");
+            div.appendChild(input);
+            container.appendChild(div);
+        }
+
+        function izbrisiPosleden() {
+            let container = document.getElementById("container");
+            let inputs = container.getElementsByTagName("input");
+            if (inputs.length == 1){ alert("Treba da ima barem eden file!!!"); return }
+            let lastInput = inputs[inputs.length-1];
+            let lastDiv = lastInput.parentNode;
+            lastDiv.parentNode.removeChild(lastDiv);
+        }
+
+    </script>
+
+</head>
+<body>
+    <span>Upload file(s)</span>
+    <br/><br/>
+
+    <div id="container">
+        <div>
+            <input type="file"/> <br/>
+        </div>
+    </div>
+    <br/>
+    <button onclick="dodadi()">Add file</button> <button onclick="izbrisiPosleden()">Remove Last File</button>
+</body>
+</html>

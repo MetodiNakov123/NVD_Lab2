@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca 1</title>
+
+    <script>
+
+        function flatten(niza) {
+            let lista = new Array();
+            function vgnezdeno (param){
+                if (param instanceof Array){
+                    param.forEach((element) => {
+                        vgnezdeno(element)
+                    })
+                }
+                else{
+                    lista.push(param);
+                }
+
+            }
+
+            vgnezdeno(niza);
+            return lista;
+            // console.log(flatten([1, [2], [3, [[4]]], [5,6]]))
+        }
+
+        function difference(niza1, niza2) {
+            let array1 = flatten(niza1);
+            let array2 = flatten(niza2);
+
+            let array = array1.concat(array2);
+
+            array.sort(function (a,b) { return a-b});
+
+            let diffArray = [];
+            diffArray[0] = array[0];
+
+            for(var i=1; i<array.length; i++){
+                var flag = 0;
+                for(var j=0; j<diffArray.length; j++){
+                    if (array[i] == diffArray[j]){
+                        flag = 1;
+                    }
+                }
+                if (flag == 0){
+                    diffArray.push(array[i]);
+                }
+            }
+
+            return diffArray;
+        }
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

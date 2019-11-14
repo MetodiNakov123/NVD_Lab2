@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca 3.3</title>
+
+    <script>
+
+        function prikaziSlika() {
+            let img = document.getElementById("slika");
+            let sliki = [{src:"https://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg", width:240, height:160},
+                {src:"https://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg", width:320, height:195},
+                {src:"https://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg", width:500, height:343}]
+
+            let random = Math.floor(Math.random()*3);
+
+            let slika = sliki[random];
+            img.src = slika.src;
+            img.height = slika.height;
+            img.width = slika.width;
+
+        }
+
+
+    </script>
+
+</head>
+<body>
+    <button onclick="prikaziSlika()">Show picture</button> <br/><br/>
+    <img id="slika" />
+
+</body>
+</html>

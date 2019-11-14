@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca 2.1</title>
+
+    <script>
+        function fibonacci() {
+            let pred = 0;
+            let curr = 1;
+            let sled = 1;
+            return function(){
+                sled = pred + curr;
+                pred = curr;
+                curr = sled;
+                return sled;
+            }
+        }
+
+        let fib_next = fibonacci();
+
+        function klikni() {
+            document.getElementById("fib").innerHTML = fib_next();
+        }
+
+    </script>
+
+</head>
+<body>
+    <button onclick="klikni()"> fib_next </button> <br/>
+    <span id="fib"></span>
+</body>
+</html>
